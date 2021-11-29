@@ -12,21 +12,33 @@
 <body>
 
 <div class="container">
+  
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
   <h2>Register</h2>
   
   
-  <form   action=""  method="post">
+  <form   action = "{{ url('/Store')}}"  method="post">
 
+   @csrf
 
   <div class="form-group">
     <label for="exampleInputName">Name</label>
-    <input type="text" class="form-control" name="name" id="exampleInputName" aria-describedby="" placeholder="Enter Name">
+    <input type="text" class="form-control" name="name" value="{{ old('name')}}" id="exampleInputName" aria-describedby="" placeholder="Enter Name">
   </div>
 
 
   <div class="form-group">
     <label for="exampleInputEmail">Email address</label>
-    <input type="email"   class="form-control"  name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <input type="email"   class="form-control"  name="email" value=" {{ old('email') }}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
   </div>
 
   <div class="form-group">
@@ -38,32 +50,8 @@
   
   <div class="form-group">
     <label for="exampleInputPassword">LinkedIn Url</label>
-    <input type="url"   class="form-control" name="linkedIn" id="exampleInputPassword1" placeholder="LinkedIn Url">
+    <input type="url"   class="form-control" name="linkedIn" value="{{ old('linkedIn') }}" id="exampleInputPassword1" placeholder="LinkedIn Url">
   </div>
-
-
-
-
-
-  <div class="form-group">
-    <label for="exampleInputName">Governorate</label>
-    <input type="text" class="form-control" name="gov" id="exampleInputName" aria-describedby="" placeholder="Enter Governorate">
-  </div>
-
-
-
-  <div class="form-group">
-    <label for="exampleInputName">City</label>
-    <input type="text" class="form-control" name="city" id="exampleInputName" aria-describedby="" placeholder="Enter City">
-  </div>
-
-
-
-  <div class="form-group">
-    <label for="exampleInputName">Address Details</label>
-    <input type="text" class="form-control" name="extraData" id="exampleInputName" aria-describedby="" placeholder="Enter Address Details">
-  </div>
-
 
 
   

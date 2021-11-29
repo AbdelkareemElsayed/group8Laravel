@@ -26,7 +26,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string|null
      */
-    // protected $namespace = 'App\\Http\\Controllers';
+     protected $namespace = 'App\\Http\\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -35,7 +35,14 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->configureRateLimiting();
+
+
+         Route::pattern( 'id','[0-9]+');
+         Route::pattern( 'name','[a-zA-Z]+');
+         
+
+
+        $this->configureRateLimiting(); 
 
         $this->routes(function () {
             Route::prefix('api')
