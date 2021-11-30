@@ -44,6 +44,17 @@ Route::get('/', function () {
  Route::get('profile','userController@shareData');
 
 
+ Route::get('Student/','userController@index')->middleware('checkLogin');
+ Route::get('edit/{id}','userController@edit')->middleware('checkLogin');
+ Route::post('Update','userController@update')->middleware('checkLogin');
+ Route::get('Delete/{id}','userController@delete')->middleware('checkLogin');
+
+ Route::get('login','userController@login');
+ Route::post('doLogin','userController@doLogin');
+ Route::get('logOut','userController@logOut')->middleware('checkLogin');
+
+
+
 
 
 
