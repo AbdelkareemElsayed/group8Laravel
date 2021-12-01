@@ -58,6 +58,28 @@ Route::get('/', function () {
 
 
 
+ // Route::get('Admins','adminController@index');
+
+ Route::resource('Admins','adminController');//->middleware('AdminCheck');
+ Route::get('AdminLogin','adminController@login');
+ Route::post('AdminDoLogin','adminController@doLogin');
+ Route::get('AdminLogOut','adminController@logOut');
+
+/*
+   Admins        (get)     Route::get('Admins','adminController@index');
+   Admins/create (get)     Route::get('Admins/create','adminController@create');
+   Admins        (post)    Route::post('Admins','adminController@store');
+   Admins/{id}/edit (get)  Route::get('Admins/{id}/edit','adminController@edit');
+   Admins/{id}     (put)   Route::put('Admins/{id}','adminController@update');
+   Admins/{id}     (get)   Route::get('Admins/{id}','adminController@show');
+   Admins/{id}     (delete)   Route::delete('Admins/{id}','adminController@destroy');
+ 
+ */
+
+ Route::get('GetMessage','adminController@message');
+
+
+
 /*
  get 
  post 
@@ -69,4 +91,13 @@ Route::get('/', function () {
  match 
  option 
  view 
+*/
+
+
+/* 
+admins      departments   
+1             1 
+m             1
+=================== 
+m             1
 */
