@@ -39,6 +39,24 @@ Route::get('/', function () {
 // Route::get('UserDetails/{name}/{email}',[userController::class , 'printDetails']);
 
 
+
+Route::get('Lang/{lang}',function ($lang){
+
+    // if($lang == "ar"){
+    //   session()->put('lang',$lang);
+    // } else{
+    //   session()->put('lang',$lang);
+    // }
+
+    session()->put('lang',$lang);
+
+    return back();
+
+});
+
+
+
+
  Route::get('Create','userController@create');
  Route::post('Store','userController@store');
  Route::get('profile','userController@shareData');
@@ -77,6 +95,9 @@ Route::get('/', function () {
  */
 
  Route::get('GetMessage','adminController@message');
+
+
+
 
 
 

@@ -34,9 +34,8 @@
     <!-- container -->
     <div class="container">
 
-
         <div class="page-header">
-            <h1>Read Users </h1>
+            <h1>{{  trans('website.r_user') }} </h1>
             <br>
 
 
@@ -46,9 +45,14 @@
 
 
 
-              {{ 'Welcome , '.auth('admins')->user()->name }}  <a href="{{ url('/AdminLogOut') }}">LogOut</a>
 
 
+              {{ 'Welcome , '.auth('admins')->user()->name }}  <a href="{{ url('/AdminLogOut') }}">{{ trans('website.logout') }}</a>
+
+              <br>
+
+              <a href="{{ url('/Lang/en') }}">EN</a> || <a href="{{ url('/Lang/ar') }}">ع</a> 
+             
 
         </div>
 
@@ -59,13 +63,13 @@
         <table class='table table-hover table-responsive table-bordered'>
             <!-- creating our table heading -->
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>department</th>
-                <th>City</th>
-                <th>action</th>
-
+                <th>{{ trans('website.id') }}</th>
+                <th>{{ \Lang::get('website.name') }}</th>
+                <th>{{ __('website.email') }}</th>
+                <th>{{ trans('website.department') }}</th>
+                <th>{{ trans('website.city') }}</th>
+                <th>{{ trans('website.action') }}</th>
+ 
             </tr>
 
 
@@ -83,8 +87,8 @@
 
                     <td>
                         <a data-toggle="modal" data-target="#modal_single_del{{ $raw->id }}"
-                            class='btn btn-danger m-r-1em'>Delete</a>
-                        <a href='{{ url('/Admins/' . $raw->id . '/edit') }}' class='btn btn-primary m-r-1em'>Edit</a>
+                            class='btn btn-danger m-r-1em'>{{ trans('website.delete') }}</a>
+                        <a href='{{ url('/Admins/' . $raw->id . '/edit') }}' class='btn btn-primary m-r-1em'>{{ trans('website.edit') }}</a>
                     </td>
 
                 </tr>

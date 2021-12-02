@@ -72,6 +72,9 @@ class adminController extends Controller
             'dep_id'   => "required|numeric",
             "city"     => "required|min:5",
             "extraData" => "required|min:5"
+        ],[],[
+
+            'extraData'             => "بيانات العنوان"
         ]);
 
         
